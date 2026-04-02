@@ -1,0 +1,114 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.disabled .container {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.nativeInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--spacing-5);
+  height: var(--spacing-5);
+  flex-shrink: 0;
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-surface);
+  color: var(--color-text-inverse);
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-ease-productive-standard),
+    border-color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.boxChecked {
+  background: var(--color-action-primary);
+  border-color: var(--color-action-primary);
+}
+
+.nativeInput:focus-visible ~ .box {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.nativeInput:hover:not(:disabled) ~ .box {
+  border-color: var(--color-action-primary-hover);
+}
+
+.nativeInput:hover:not(:disabled) ~ .boxChecked {
+  background: var(--color-action-primary-hover);
+  border-color: var(--color-action-primary-hover);
+}
+
+.hasError .box {
+  border-color: var(--color-border-error);
+}
+
+.hasError .boxChecked {
+  background: var(--color-feedback-danger);
+  border-color: var(--color-feedback-danger);
+}
+
+/* Checkmark stroke animation */
+.checkIcon {
+  width: var(--spacing-3);
+  height: var(--spacing-3);
+}
+
+.checkPath {
+  stroke-dasharray: 16;
+  stroke-dashoffset: 16;
+  animation: checkStroke var(--motion-duration-normal) var(--motion-ease-productive-enter) forwards;
+}
+
+@keyframes checkStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.indeterminateIcon {
+  width: var(--spacing-2-5);
+  height: var(--spacing-2-5);
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+}
+
+.disabled .label {
+  color: var(--color-text-disabled);
+}
+
+.error {
+  font-size: var(--font-size-xs);
+  color: var(--color-feedback-danger);
+  margin-left: calc(var(--spacing-5) + var(--spacing-2));
+}

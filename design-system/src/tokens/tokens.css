@@ -1,0 +1,332 @@
+/* ============================================================
+   STARTER DESIGN SYSTEM — Design Tokens
+   Visual Direction: Clarity
+   Generated: 2026-04-02
+   ============================================================ */
+
+:root {
+  /* ──────────────────────────────────────────────────────────
+     LAYER 1: PRIMITIVE TOKENS
+     Raw values. Never reference directly in components.
+     ────────────────────────────────────────────────────────── */
+
+  /* --- Colors: Neutral --- */
+  --raw-neutral-0: #ffffff;
+  --raw-neutral-50: #f9fafb;
+  --raw-neutral-100: #f3f4f6;
+  --raw-neutral-200: #e5e7eb;
+  --raw-neutral-300: #d1d5db;
+  --raw-neutral-400: #9ca3af;
+  --raw-neutral-500: #6b7280;
+  --raw-neutral-600: #4b5563;
+  --raw-neutral-700: #374151;
+  --raw-neutral-800: #1f2937;
+  --raw-neutral-900: #111827;
+  --raw-neutral-950: #030712;
+
+  /* --- Colors: Primary (Indigo) --- */
+  --raw-primary-50: #eef2ff;
+  --raw-primary-100: #e0e7ff;
+  --raw-primary-200: #c7d2fe;
+  --raw-primary-300: #a5b4fc;
+  --raw-primary-400: #818cf8;
+  --raw-primary-500: #6366f1;
+  --raw-primary-600: #4f46e5;
+  --raw-primary-700: #4338ca;
+  --raw-primary-800: #3730a3;
+  --raw-primary-900: #312e81;
+
+  /* --- Colors: Success (Emerald) --- */
+  --raw-success-50: #ecfdf5;
+  --raw-success-100: #d1fae5;
+  --raw-success-500: #10b981;
+  --raw-success-600: #059669;
+  --raw-success-700: #047857;
+
+  /* --- Colors: Warning (Amber) --- */
+  --raw-warning-50: #fffbeb;
+  --raw-warning-100: #fef3c7;
+  --raw-warning-500: #f59e0b;
+  --raw-warning-600: #d97706;
+  --raw-warning-700: #b45309;
+
+  /* --- Colors: Danger (Rose) --- */
+  --raw-danger-50: #fff1f2;
+  --raw-danger-100: #ffe4e6;
+  --raw-danger-500: #f43f5e;
+  --raw-danger-600: #e11d48;
+  --raw-danger-700: #be123c;
+
+  /* --- Colors: Info (Sky) --- */
+  --raw-info-50: #f0f9ff;
+  --raw-info-100: #e0f2fe;
+  --raw-info-500: #0ea5e9;
+  --raw-info-600: #0284c7;
+  --raw-info-700: #0369a1;
+
+  /* --- Spacing --- */
+  --raw-space-0: 0;
+  --raw-space-px: 1px;
+  --raw-space-0-5: 0.125rem;
+  --raw-space-1: 0.25rem;
+  --raw-space-1-5: 0.375rem;
+  --raw-space-2: 0.5rem;
+  --raw-space-2-5: 0.625rem;
+  --raw-space-3: 0.75rem;
+  --raw-space-4: 1rem;
+  --raw-space-5: 1.25rem;
+  --raw-space-6: 1.5rem;
+  --raw-space-8: 2rem;
+  --raw-space-10: 2.5rem;
+  --raw-space-12: 3rem;
+  --raw-space-16: 4rem;
+  --raw-space-20: 5rem;
+  --raw-space-24: 6rem;
+
+  /* --- Typography --- */
+  --raw-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --raw-font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  --raw-text-xs: 0.75rem;
+  --raw-text-sm: 0.875rem;
+  --raw-text-base: 1rem;
+  --raw-text-lg: 1.125rem;
+  --raw-text-xl: 1.25rem;
+  --raw-text-2xl: 1.5rem;
+  --raw-text-3xl: 1.875rem;
+  --raw-text-4xl: 2.25rem;
+
+  --raw-leading-none: 1;
+  --raw-leading-tight: 1.25;
+  --raw-leading-snug: 1.375;
+  --raw-leading-normal: 1.5;
+  --raw-leading-relaxed: 1.625;
+
+  --raw-weight-normal: 400;
+  --raw-weight-medium: 500;
+  --raw-weight-semibold: 600;
+  --raw-weight-bold: 700;
+
+  --raw-tracking-tight: -0.025em;
+  --raw-tracking-normal: 0;
+  --raw-tracking-wide: 0.025em;
+
+  /* --- Border Radius --- */
+  --raw-radius-none: 0;
+  --raw-radius-sm: 0.25rem;
+  --raw-radius-md: 0.375rem;
+  --raw-radius-lg: 0.5rem;
+  --raw-radius-xl: 0.75rem;
+  --raw-radius-2xl: 1rem;
+  --raw-radius-3xl: 1.5rem;
+  --raw-radius-full: 9999px;
+
+  /* --- Shadows --- */
+  --raw-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --raw-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --raw-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --raw-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --raw-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* --- Z-Index --- */
+  --raw-z-base: 0;
+  --raw-z-dropdown: 100;
+  --raw-z-sticky: 200;
+  --raw-z-overlay: 300;
+  --raw-z-modal: 400;
+  --raw-z-popover: 500;
+  --raw-z-toast: 600;
+  --raw-z-tooltip: 700;
+
+  /* ──────────────────────────────────────────────────────────
+     LAYER 2: SEMANTIC TOKENS
+     Purpose-driven aliases. Use these in components.
+     ────────────────────────────────────────────────────────── */
+
+  /* --- Background --- */
+  --color-bg-surface: var(--raw-neutral-0);
+  --color-bg-subtle: var(--raw-neutral-50);
+  --color-bg-sunken: var(--raw-neutral-100);
+  --color-bg-elevated: var(--raw-neutral-0);
+  --color-bg-overlay: rgb(0 0 0 / 0.5);
+
+  /* --- Text --- */
+  --color-text-primary: var(--raw-neutral-900);
+  --color-text-secondary: var(--raw-neutral-500);
+  --color-text-disabled: var(--raw-neutral-400);
+  --color-text-inverse: var(--raw-neutral-0);
+  --color-text-link: var(--raw-primary-600);
+  --color-text-link-hover: var(--raw-primary-700);
+
+  /* --- Border --- */
+  --color-border-default: var(--raw-neutral-200);
+  --color-border-strong: var(--raw-neutral-300);
+  --color-border-focus: var(--raw-primary-500);
+  --color-border-error: var(--raw-danger-500);
+
+  /* --- Action (Primary) --- */
+  --color-action-primary: var(--raw-primary-600);
+  --color-action-primary-hover: var(--raw-primary-700);
+  --color-action-primary-active: var(--raw-primary-800);
+  --color-action-secondary: var(--raw-neutral-100);
+  --color-action-secondary-hover: var(--raw-neutral-200);
+  --color-action-ghost-hover: var(--raw-neutral-100);
+  --color-action-destructive: var(--raw-danger-600);
+  --color-action-destructive-hover: var(--raw-danger-700);
+
+  /* --- Feedback --- */
+  --color-feedback-success: var(--raw-success-600);
+  --color-feedback-success-subtle: var(--raw-success-50);
+  --color-feedback-warning: var(--raw-warning-600);
+  --color-feedback-warning-subtle: var(--raw-warning-50);
+  --color-feedback-danger: var(--raw-danger-600);
+  --color-feedback-danger-subtle: var(--raw-danger-50);
+  --color-feedback-info: var(--raw-info-600);
+  --color-feedback-info-subtle: var(--raw-info-50);
+
+  /* --- Spacing (Semantic) --- */
+  --spacing-0: var(--raw-space-0);
+  --spacing-px: var(--raw-space-px);
+  --spacing-0-5: var(--raw-space-0-5);
+  --spacing-1: var(--raw-space-1);
+  --spacing-1-5: var(--raw-space-1-5);
+  --spacing-2: var(--raw-space-2);
+  --spacing-2-5: var(--raw-space-2-5);
+  --spacing-3: var(--raw-space-3);
+  --spacing-4: var(--raw-space-4);
+  --spacing-5: var(--raw-space-5);
+  --spacing-6: var(--raw-space-6);
+  --spacing-8: var(--raw-space-8);
+  --spacing-10: var(--raw-space-10);
+  --spacing-12: var(--raw-space-12);
+  --spacing-16: var(--raw-space-16);
+  --spacing-20: var(--raw-space-20);
+  --spacing-24: var(--raw-space-24);
+
+  /* --- Typography (Semantic) --- */
+  --font-family-sans: var(--raw-font-sans);
+  --font-family-mono: var(--raw-font-mono);
+
+  --font-size-xs: var(--raw-text-xs);
+  --font-size-sm: var(--raw-text-sm);
+  --font-size-base: var(--raw-text-base);
+  --font-size-lg: var(--raw-text-lg);
+  --font-size-xl: var(--raw-text-xl);
+  --font-size-2xl: var(--raw-text-2xl);
+  --font-size-3xl: var(--raw-text-3xl);
+  --font-size-4xl: var(--raw-text-4xl);
+
+  --font-weight-normal: var(--raw-weight-normal);
+  --font-weight-medium: var(--raw-weight-medium);
+  --font-weight-semibold: var(--raw-weight-semibold);
+  --font-weight-bold: var(--raw-weight-bold);
+
+  --line-height-none: var(--raw-leading-none);
+  --line-height-tight: var(--raw-leading-tight);
+  --line-height-snug: var(--raw-leading-snug);
+  --line-height-normal: var(--raw-leading-normal);
+  --line-height-relaxed: var(--raw-leading-relaxed);
+
+  --letter-spacing-tight: var(--raw-tracking-tight);
+  --letter-spacing-normal: var(--raw-tracking-normal);
+  --letter-spacing-wide: var(--raw-tracking-wide);
+
+  /* --- Radius (Semantic) --- */
+  --radius-none: var(--raw-radius-none);
+  --radius-sm: var(--raw-radius-sm);
+  --radius-md: var(--raw-radius-md);
+  --radius-lg: var(--raw-radius-lg);
+  --radius-xl: var(--raw-radius-xl);
+  --radius-2xl: var(--raw-radius-2xl);
+  --radius-3xl: var(--raw-radius-3xl);
+  --radius-full: var(--raw-radius-full);
+
+  /* --- Shadows (Semantic) --- */
+  --shadow-xs: var(--raw-shadow-xs);
+  --shadow-sm: var(--raw-shadow-sm);
+  --shadow-md: var(--raw-shadow-md);
+  --shadow-lg: var(--raw-shadow-lg);
+  --shadow-xl: var(--raw-shadow-xl);
+
+  /* --- Z-Index (Semantic) --- */
+  --z-base: var(--raw-z-base);
+  --z-dropdown: var(--raw-z-dropdown);
+  --z-sticky: var(--raw-z-sticky);
+  --z-overlay: var(--raw-z-overlay);
+  --z-modal: var(--raw-z-modal);
+  --z-popover: var(--raw-z-popover);
+  --z-toast: var(--raw-z-toast);
+  --z-tooltip: var(--raw-z-tooltip);
+
+  /* ──────────────────────────────────────────────────────────
+     MOTION TOKENS
+     ────────────────────────────────────────────────────────── */
+
+  /* --- Durations --- */
+  --motion-duration-instant: 50ms;
+  --motion-duration-fast: 100ms;
+  --motion-duration-normal: 200ms;
+  --motion-duration-slow: 300ms;
+  --motion-duration-slower: 400ms;
+  --motion-duration-page: 500ms;
+
+  /* --- Easings: Productive (routine interactions) --- */
+  --motion-ease-productive-standard: cubic-bezier(0.2, 0, 0.38, 0.9);
+  --motion-ease-productive-enter: cubic-bezier(0, 0, 0.38, 0.9);
+  --motion-ease-productive-exit: cubic-bezier(0.2, 0, 1, 0.9);
+
+  /* --- Easings: Expressive (delight moments) --- */
+  --motion-ease-expressive-enter: cubic-bezier(0, 0, 0.3, 1);
+  --motion-ease-expressive-exit: cubic-bezier(0.4, 0, 1, 1);
+  --motion-ease-expressive-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ──────────────────────────────────────────────────────────
+   REDUCED MOTION
+   ────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration-instant: 0.01ms;
+    --motion-duration-fast: 0.01ms;
+    --motion-duration-normal: 0.01ms;
+    --motion-duration-slow: 0.01ms;
+    --motion-duration-slower: 0.01ms;
+    --motion-duration-page: 0.01ms;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────
+   GLOBAL RESET & BASE STYLES
+   ────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-family-sans);
+  font-size: 16px;
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background: var(--color-bg-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Focus visible for keyboard users only */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}

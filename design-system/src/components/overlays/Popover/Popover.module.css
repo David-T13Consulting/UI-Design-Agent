@@ -1,0 +1,101 @@
+/* Popover — positioned content panel */
+
+.root {
+  position: relative;
+  display: inline-block;
+}
+
+/* ── Content panel ── */
+
+.content {
+  position: absolute;
+  z-index: var(--z-popover);
+  min-width: 200px;
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-4);
+  animation: popoverEnter var(--motion-duration-fast) var(--motion-ease-productive-enter) both;
+}
+
+/* ── Placement-specific slide direction ── */
+
+@keyframes popoverEnter {
+  from {
+    opacity: 0;
+    scale: 0.95;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.content[data-placement='bottom'] {
+  animation-name: popoverEnterBottom;
+}
+
+.content[data-placement='top'] {
+  animation-name: popoverEnterTop;
+}
+
+.content[data-placement='left'] {
+  animation-name: popoverEnterLeft;
+}
+
+.content[data-placement='right'] {
+  animation-name: popoverEnterRight;
+}
+
+@keyframes popoverEnterBottom {
+  from {
+    opacity: 0;
+    scale: 0.95;
+    translate: 0 -4px;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes popoverEnterTop {
+  from {
+    opacity: 0;
+    scale: 0.95;
+    translate: 0 4px;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes popoverEnterLeft {
+  from {
+    opacity: 0;
+    scale: 0.95;
+    translate: 4px 0;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes popoverEnterRight {
+  from {
+    opacity: 0;
+    scale: 0.95;
+    translate: -4px 0;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
+  }
+}

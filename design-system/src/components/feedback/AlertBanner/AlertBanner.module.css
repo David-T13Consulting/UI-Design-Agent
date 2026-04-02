@@ -1,0 +1,135 @@
+/* AlertBanner — full-width notification banner */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.root {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  width: 100%;
+  padding: var(--spacing-4);
+  border-radius: var(--radius-lg);
+  animation: slideDown var(--motion-duration-slow) var(--motion-ease-productive-enter) both;
+}
+
+/* ── Variant backgrounds & text colors ── */
+
+.info {
+  background-color: var(--color-feedback-info-subtle);
+  color: var(--color-feedback-info);
+}
+
+.success {
+  background-color: var(--color-feedback-success-subtle);
+  color: var(--color-feedback-success);
+}
+
+.warning {
+  background-color: var(--color-feedback-warning-subtle);
+  color: var(--color-feedback-warning);
+}
+
+.error {
+  background-color: var(--color-feedback-danger-subtle);
+  color: var(--color-feedback-danger);
+}
+
+/* ── Icon ── */
+
+.iconWrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--spacing-0-5);
+}
+
+.icon {
+  display: block;
+}
+
+/* ── Content ── */
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: inherit;
+}
+
+.message {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-0-5);
+}
+
+/* ── Action button ── */
+
+.actionButton {
+  flex-shrink: 0;
+  align-self: center;
+  padding: var(--spacing-1-5) var(--spacing-3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-none);
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+  white-space: nowrap;
+}
+
+.actionButton:hover {
+  background-color: rgb(0 0 0 / 0.05);
+}
+
+.actionButton:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ── Dismiss button ── */
+
+.dismissButton {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.dismissButton:hover {
+  opacity: 1;
+}
+
+.dismissButton:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}

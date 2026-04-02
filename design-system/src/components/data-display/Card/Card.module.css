@@ -1,0 +1,58 @@
+.root {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-default);
+  background-color: var(--color-bg-surface);
+  overflow: hidden;
+  transition:
+    transform var(--motion-duration-normal) var(--motion-ease-productive-standard),
+    box-shadow var(--motion-duration-normal) var(--motion-ease-productive-standard);
+}
+
+/* --- Shadow variants --- */
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+/* --- Padding variants --- */
+.padding-sm {
+  padding: var(--spacing-3);
+}
+
+.padding-md {
+  padding: var(--spacing-4);
+}
+
+.padding-lg {
+  padding: var(--spacing-6);
+}
+
+/* --- Interactive --- */
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.interactive:active {
+  transform: translateY(0);
+}
+
+/* --- Header / Footer --- */
+.header {
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.footer {
+  border-top: 1px solid var(--color-border-default);
+}

@@ -1,0 +1,104 @@
+.root {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.vertical {
+  flex-direction: column;
+}
+
+.horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.disabled .option {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.nativeInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--spacing-5);
+  height: var(--spacing-5);
+  flex-shrink: 0;
+  border: 2px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-surface);
+  transition: border-color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.circleError {
+  border-color: var(--color-border-error);
+}
+
+.nativeInput:checked ~ .circle {
+  border-color: var(--color-action-primary);
+}
+
+.nativeInput:focus-visible ~ .circle {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.nativeInput:hover:not(:disabled) ~ .circle {
+  border-color: var(--color-action-primary-hover);
+}
+
+.dot {
+  width: var(--spacing-2-5);
+  height: var(--spacing-2-5);
+  border-radius: var(--radius-full);
+  background: var(--color-action-primary);
+  transform: scale(0);
+  transition: transform var(--motion-duration-normal) var(--motion-ease-expressive-bounce);
+}
+
+.dotSelected {
+  transform: scale(1);
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+}
+
+.disabled .label {
+  color: var(--color-text-disabled);
+}
+
+.error {
+  font-size: var(--font-size-xs);
+  color: var(--color-feedback-danger);
+  margin-top: var(--spacing-1);
+}

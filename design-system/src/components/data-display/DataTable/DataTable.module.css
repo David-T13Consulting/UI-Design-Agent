@@ -1,0 +1,121 @@
+.root {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+}
+
+.thead {
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.th {
+  padding: var(--spacing-3) var(--spacing-4);
+  text-align: left;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.th.sortable {
+  cursor: pointer;
+}
+
+.th.sortable:hover {
+  color: var(--color-text-primary);
+}
+
+.thContent {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.sortIcon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text-disabled);
+}
+
+.th.sortable:hover .sortIcon {
+  color: var(--color-text-secondary);
+}
+
+.tbody {
+  /* tbody base */
+}
+
+.tr {
+  border-bottom: 1px solid var(--color-border-default);
+  transition: background-color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.tr:last-child {
+  border-bottom: none;
+}
+
+.tr:hover {
+  background-color: var(--color-bg-subtle);
+}
+
+.td {
+  padding: var(--spacing-3) var(--spacing-4);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-normal);
+  vertical-align: middle;
+}
+
+/* --- Skeleton loading --- */
+.skeleton {
+  height: 1rem;
+  width: 75%;
+  border-radius: var(--radius-md);
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-sunken) 25%,
+    var(--raw-neutral-200) 50%,
+    var(--color-bg-sunken) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* --- Empty state --- */
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-12) var(--spacing-4);
+  color: var(--color-text-secondary);
+}
+
+/* --- Screen reader only --- */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

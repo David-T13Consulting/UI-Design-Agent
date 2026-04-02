@@ -1,0 +1,94 @@
+/* TextInput.module.css */
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1-5);
+  width: 100%;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-normal);
+}
+
+.required {
+  color: var(--color-feedback-danger);
+  margin-left: var(--spacing-0-5);
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-surface);
+  padding: 0 var(--spacing-3);
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-ease-productive-standard),
+    box-shadow var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.inputWrapper:focus-within {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px var(--raw-primary-100);
+}
+
+.inputWrapperError {
+  border-color: var(--color-border-error);
+}
+
+.inputWrapperError:focus-within {
+  border-color: var(--color-border-error);
+  box-shadow: 0 0 0 3px var(--raw-danger-100);
+}
+
+.inputWrapperDisabled {
+  background-color: var(--color-bg-sunken);
+  cursor: not-allowed;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  height: var(--spacing-10);
+  width: 100%;
+}
+
+.input::placeholder {
+  color: var(--color-text-disabled);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+  color: var(--color-text-disabled);
+}
+
+.prefix,
+.suffix {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+}
+
+.error {
+  font-size: var(--font-size-xs);
+  color: var(--color-feedback-danger);
+  line-height: var(--line-height-normal);
+}

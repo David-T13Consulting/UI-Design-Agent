@@ -1,0 +1,56 @@
+/* FilterBar.module.css */
+
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-3);
+  width: 100%;
+}
+
+.searchWrapper {
+  flex: 1 1 12rem;
+  min-width: 0;
+}
+
+.filterWrapper {
+  flex: 0 1 auto;
+  min-width: 8rem;
+}
+
+.activeIndicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  flex-shrink: 0;
+}
+
+.clearButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-1) var(--spacing-2);
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color var(--motion-duration-fast) var(--motion-ease-productive-standard),
+    background-color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.clearButton:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-action-ghost-hover);
+}
+
+.clearButton:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}

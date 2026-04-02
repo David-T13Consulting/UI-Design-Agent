@@ -1,0 +1,123 @@
+/* Drawer — side panel overlay */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  background-color: var(--color-bg-overlay);
+  opacity: 0;
+  transition: opacity var(--motion-duration-slow) ease;
+}
+
+.backdrop[data-state='open'] {
+  opacity: 1;
+}
+
+/* ── Panel ── */
+
+.panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  background-color: var(--color-bg-elevated);
+  box-shadow: var(--shadow-xl);
+  transition: transform var(--motion-duration-slower) var(--motion-ease-productive-enter);
+}
+
+.panel:focus {
+  outline: none;
+}
+
+/* ── Placement variants ── */
+
+.right {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.right[data-state='open'] {
+  transform: translateX(0);
+}
+
+.left {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.left[data-state='open'] {
+  transform: translateX(0);
+}
+
+/* ── Header ── */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-5) var(--spacing-6);
+  border-bottom: 1px solid var(--color-border-default);
+  flex-shrink: 0;
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-primary);
+}
+
+/* ── Close button ── */
+
+.closeButton {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-ease-productive-standard),
+    color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.closeButton:hover {
+  background-color: var(--color-action-ghost-hover);
+  color: var(--color-text-primary);
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ── Body ── */
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-6);
+}
+
+/* ── Footer ── */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4) var(--spacing-6);
+  border-top: 1px solid var(--color-border-default);
+  flex-shrink: 0;
+}

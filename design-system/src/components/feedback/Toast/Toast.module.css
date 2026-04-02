@@ -1,0 +1,176 @@
+/* Toast — notification card with progress bar */
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shrinkProgress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.root {
+  width: 360px;
+  max-width: 100%;
+  background-color: var(--color-bg-elevated);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: slideInRight var(--motion-duration-slow) var(--motion-ease-productive-enter) both;
+}
+
+.body {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+}
+
+/* ── Variant icon colors ── */
+
+.info .iconWrapper {
+  color: var(--color-feedback-info);
+}
+
+.success .iconWrapper {
+  color: var(--color-feedback-success);
+}
+
+.warning .iconWrapper {
+  color: var(--color-feedback-warning);
+}
+
+.error .iconWrapper {
+  color: var(--color-feedback-danger);
+}
+
+/* ── Icon ── */
+
+.iconWrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--spacing-0-5);
+}
+
+.icon {
+  display: block;
+}
+
+/* ── Content ── */
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-primary);
+}
+
+.message {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-0-5);
+}
+
+/* ── Action button ── */
+
+.actionButton {
+  flex-shrink: 0;
+  align-self: center;
+  padding: var(--spacing-1-5) var(--spacing-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-none);
+  color: var(--color-action-primary);
+  background: transparent;
+  border: 1px solid var(--color-action-primary);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+  white-space: nowrap;
+}
+
+.actionButton:hover {
+  background-color: var(--raw-primary-50);
+}
+
+.actionButton:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ── Close button ── */
+
+.closeButton {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.closeButton:hover {
+  opacity: 1;
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* ── Progress bar ── */
+
+.progressTrack {
+  height: 3px;
+  background-color: var(--color-bg-sunken);
+}
+
+.progressBar {
+  height: 100%;
+  transform-origin: left center;
+  animation: shrinkProgress linear both;
+}
+
+.progress_info {
+  background-color: var(--color-feedback-info);
+}
+
+.progress_success {
+  background-color: var(--color-feedback-success);
+}
+
+.progress_warning {
+  background-color: var(--color-feedback-warning);
+}
+
+.progress_error {
+  background-color: var(--color-feedback-danger);
+}

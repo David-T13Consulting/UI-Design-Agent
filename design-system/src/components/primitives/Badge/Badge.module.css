@@ -1,0 +1,92 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-none);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.sizeSm {
+  padding: var(--spacing-0-5) var(--spacing-2);
+  font-size: var(--font-size-xs);
+}
+
+.sizeMd {
+  padding: var(--spacing-1) var(--spacing-2-5);
+  font-size: var(--font-size-sm);
+}
+
+/* --- Variants --- */
+
+.variantNeutral {
+  background: var(--color-bg-sunken);
+  color: var(--color-text-secondary);
+}
+
+.variantInfo {
+  background: var(--color-feedback-info-subtle);
+  color: var(--raw-info-700);
+}
+
+.variantSuccess {
+  background: var(--color-feedback-success-subtle);
+  color: var(--raw-success-700);
+}
+
+.variantWarning {
+  background: var(--color-feedback-warning-subtle);
+  color: var(--raw-warning-700);
+}
+
+.variantDanger {
+  background: var(--color-feedback-danger-subtle);
+  color: var(--raw-danger-700);
+}
+
+/* --- Dot --- */
+
+.dot {
+  width: var(--spacing-1-5);
+  height: var(--spacing-1-5);
+  border-radius: var(--radius-full);
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* --- Label --- */
+
+.label {
+  display: inline-block;
+}
+
+/* --- Dismiss button --- */
+
+.dismissButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: currentColor;
+  cursor: pointer;
+  padding: 0;
+  margin-left: var(--spacing-0-5);
+  border-radius: var(--radius-full);
+  opacity: 0;
+  transition: opacity var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.root:hover .dismissButton,
+.root:focus-within .dismissButton,
+.dismissButton:focus-visible {
+  opacity: 1;
+}
+
+.dismissButton:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 1px;
+}

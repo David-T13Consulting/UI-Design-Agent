@@ -1,0 +1,100 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-2) var(--spacing-3);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-ease-productive-standard),
+    color var(--motion-duration-fast) var(--motion-ease-productive-standard),
+    border-color var(--motion-duration-fast) var(--motion-ease-productive-standard),
+    width var(--motion-duration-slower) var(--motion-ease-productive-standard),
+    padding var(--motion-duration-slower) var(--motion-ease-productive-standard);
+}
+
+.root:hover {
+  background: var(--color-action-ghost-hover);
+  color: var(--color-text-primary);
+}
+
+/* ── Active state ── */
+.active {
+  background: var(--raw-primary-50);
+  color: var(--color-action-primary);
+  border-left-color: var(--color-action-primary);
+}
+
+.active:hover {
+  background: var(--raw-primary-100);
+  color: var(--color-action-primary-hover);
+}
+
+/* ── Collapsed state ── */
+.collapsed {
+  justify-content: center;
+  padding: var(--spacing-2);
+  border-left-color: transparent;
+}
+
+.collapsed.active {
+  border-left-color: transparent;
+  background: var(--raw-primary-50);
+}
+
+/* ── Icon ── */
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  display: block;
+}
+
+/* ── Label ── */
+.label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Badge (expanded) ── */
+.badge {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 var(--spacing-1-5);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-none);
+  color: var(--color-text-inverse);
+  background: var(--color-action-primary);
+  border-radius: var(--radius-full);
+}
+
+/* ── Badge dot (collapsed) ── */
+.badgeDot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-feedback-danger);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-bg-surface);
+}
