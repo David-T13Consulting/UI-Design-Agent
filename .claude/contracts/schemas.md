@@ -359,3 +359,52 @@ baseline:
   regression_detected: boolean        # True if delta < -10
 recommendations: list[string]         # How to improve weak dimensions
 ```
+
+---
+
+### design_system_output
+
+Produced by: `/design-system`
+Consumed by: Orchestrator (L4 tasks that include design system setup), eval judge
+
+```yaml
+# CONTRACT: design_system_output
+product_name: string                    # Product name from Phase 0
+visual_direction: "authority" | "clarity" | "momentum" | "custom"
+font_family: string                     # Chosen primary font
+primary_color: string                   # Primary hex color
+tokens:
+  primitive_count: integer              # Total primitive tokens generated
+  semantic_count: integer               # Total semantic tokens generated
+  component_count: integer              # Total component-level overrides
+  motion_count: integer                 # Total motion tokens
+  css_properties_generated: integer     # Total CSS custom properties in tokens.css
+components:
+  total: integer                        # Total components built
+  with_stories: integer                 # Components that have Storybook stories
+  with_all_states: integer              # Components covering all required states
+  categories:
+    primitives: integer
+    feedback: integer
+    navigation: integer
+    data_display: integer
+    overlays: integer
+    patterns: integer
+evals:
+  contrast:
+    pairs_tested: integer               # Number of color pairs audited
+    aa_pass: integer                    # WCAG AA passes
+    aa_fail: integer                    # WCAG AA failures
+  motion:
+    tokens_audited: integer             # Motion tokens checked
+    flags: integer                      # Anti-pattern flags raised
+  coverage:
+    components_with_stories: integer
+    states_covered: integer
+    states_expected: integer
+    token_violations: integer           # Raw CSS values that should be tokens
+    axe_violations: integer             # Accessibility violations found
+storybook_starts: boolean               # Does Storybook launch without errors?
+verdict: "COMPLETE" | "PARTIAL" | "BLOCKED"
+blocking_issues: list[string]           # Issues preventing completion
+```

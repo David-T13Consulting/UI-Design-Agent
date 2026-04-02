@@ -6,6 +6,19 @@
 
 ---
 
+## D-003: Design System Skill Architecture
+**Date**: 2026-04-02
+**Decision**: Built `/design-system` as a skill (not an agent) with reference files split into `.claude/skills/refs/`. The skill handles the full lifecycle: interactive Phase 0 identity questions → Vite+React+TS scaffold → 3-layer token architecture → 29-component library → Storybook → automated evals.
+**Rationale**: The original monolithic prompt was too large for a single file. Splitting specs into refs (tokens, components, evals) keeps the main skill readable and each spec independently maintainable. Skill (not agent) because this runs in the main conversation with user interaction (Phase 0 questions), not as an autonomous subprocess.
+**Key design choices**:
+- `/design-system` is foundational infrastructure; `/design` is per-feature work that consumes it
+- No Tailwind, no CSS-in-JS, no UI library wrapping — primitives from scratch with CSS modules
+- 3-layer tokens (primitive → semantic → component) + motion tokens as separate layer
+- Contract output added to schemas.md for orchestrator/eval consumption
+**Status**: Active
+
+---
+
 ## D-002: Blueprint Learning Loop Architecture
 **Date**: 2026-04-01
 **Decision**: Implemented blueprint versioning (SemVer 1.0.0), CHANGELOG.md, and UPSTREAM_CANDIDATES.md template. Future improvements (retrospective skill, sync skill, baseline aggregation) tracked in BACKLOG.md as B-001 through B-008.

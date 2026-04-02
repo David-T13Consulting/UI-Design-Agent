@@ -10,16 +10,17 @@
 
 | Field | Value |
 |-------|-------|
-| **Phase** | Blueprint v1.0.0 complete — ready to fork for real projects |
-| **Pipeline Mode** | N/A (this is the blueprint itself, not a project fork) |
-| **Active Work** | None |
+| **Phase** | Blueprint v1.0.0 + Design System skill added |
+| **Pipeline Mode** | BUILD |
+| **Active Work** | `/design-system` skill scaffold complete |
 | **Blocked On** | Nothing |
-| **Next Action** | Fork this repo for a real project and start building |
+| **Next Action** | Invoke `/design-system` on a project to test the skill end-to-end |
 
 ## What Exists
 
 - CLAUDE.md blueprint v1.0.0 (with L4 adaptive task routing)
-- Agent skills (10) in `.claude/skills/` — all at 4/5 domain expertise
+- Agent skills (11) in `.claude/skills/` — all at 4/5 domain expertise (includes `/design-system`)
+- Design system reference specs in `.claude/skills/refs/` (tokens, components, evals)
 - Custom subagents (5) in `.claude/agents/` — all at 4/5 domain expertise
 - Eval rubrics (9) in `.claude/evals/rubrics/` — 8 system + 1 human eval, all at 4/5
 - Structured I/O contracts in `.claude/contracts/schemas.md`
@@ -32,3 +33,4 @@
 - **2026-04-01**: Upgraded all 23 skill/agent/rubric files to 4/5 domain expertise
 - **2026-04-01**: Added human eval rubric for Product Owner gate reviews
 - **2026-04-01**: Added blueprint versioning (v1.0.0), CHANGELOG, UPSTREAM_CANDIDATES, learning loop backlog (B-001 through B-008)
+- **2026-04-02**: Built `/design-system` skill — full design system scaffolding agent (Phase 0-8, 29 components, 3-layer tokens, motion system, Storybook, evals)
