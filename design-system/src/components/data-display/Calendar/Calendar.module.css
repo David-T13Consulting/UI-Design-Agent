@@ -1,0 +1,225 @@
+/* Calendar.module.css */
+
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  font-family: var(--font-family-sans);
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-3);
+  user-select: none;
+}
+
+/* ── Header ── */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-3);
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.headerLabel {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  padding: var(--spacing-1) var(--spacing-1-5);
+  border-radius: var(--radius-md);
+  transition: background-color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.headerLabel:hover {
+  background: var(--color-action-ghost-hover);
+}
+
+.headerLabelStatic {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  padding: var(--spacing-1) var(--spacing-1-5);
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: background-color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.navButton:hover {
+  background: var(--color-action-ghost-hover);
+  color: var(--color-text-primary);
+}
+
+/* ── Day labels ── */
+
+.dayLabels {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: var(--spacing-1);
+}
+
+.dayLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--spacing-8);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+/* ── Day grid ── */
+
+.dayGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-0);
+}
+
+.dayCell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: var(--spacing-10);
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  transition: background-color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.dayCell:hover:not(:disabled) {
+  background: var(--color-action-ghost-hover);
+}
+
+.dayCell.outsideMonth {
+  color: var(--color-text-disabled);
+}
+
+.dayCell.disabled {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.dayCell.selected {
+  background: var(--color-action-primary);
+  color: var(--color-text-inverse);
+}
+
+.dayCell.selected:hover:not(:disabled) {
+  background: var(--color-action-primary-hover);
+}
+
+.dayCell.today {
+  box-shadow: inset 0 0 0 1px var(--color-action-primary);
+}
+
+/* ── Marker dot ── */
+
+.marker {
+  position: absolute;
+  bottom: 3px;
+  width: 4px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-action-primary);
+}
+
+.dayCell.selected .marker {
+  background: var(--color-text-inverse);
+}
+
+/* ── Month grid ── */
+
+.monthGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-2);
+}
+
+.monthCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--spacing-12);
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  transition: background-color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.monthCell:hover {
+  background: var(--color-action-ghost-hover);
+}
+
+.monthCell.selected {
+  background: var(--color-action-primary);
+  color: var(--color-text-inverse);
+}
+
+/* ── Year grid ── */
+
+.yearGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-2);
+}
+
+.yearCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--spacing-12);
+  background: none;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  transition: background-color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.yearCell:hover {
+  background: var(--color-action-ghost-hover);
+}
+
+.yearCell.selected {
+  background: var(--color-action-primary);
+  color: var(--color-text-inverse);
+}
+
+.yearCell.outsideMonth {
+  color: var(--color-text-disabled);
+}

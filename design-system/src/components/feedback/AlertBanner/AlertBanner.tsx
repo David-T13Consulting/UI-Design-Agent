@@ -7,8 +7,12 @@ export interface AlertBannerAction {
   onClick: () => void;
 }
 
+/** Figma alias mapping to canonical variants */
+type FigmaAlias = 'informative' | 'validation' | 'problem' | 'negative';
+type CanonicalVariant = 'info' | 'success' | 'warning' | 'error';
+
 export interface AlertBannerProps {
-  variant: 'info' | 'success' | 'warning' | 'error';
+  variant: CanonicalVariant | FigmaAlias;
   title: string;
   message: string;
   dismissible?: boolean;
@@ -16,14 +20,25 @@ export interface AlertBannerProps {
   onDismiss?: () => void;
 }
 
-const iconMap = {
+const FIGMA_ALIAS_MAP: Record<FigmaAlias, CanonicalVariant> = {
+  informative: 'info',
+  validation: 'success',
+  problem: 'warning',
+  negative: 'error',
+};
+
+function resolveVariant(variant: CanonicalVariant | FigmaAlias): CanonicalVariant {
+  return (FIGMA_ALIAS_MAP as Record<string, CanonicalVariant>)[variant] ?? (variant as CanonicalVariant);
+}
+
+const iconMap: Record<CanonicalVariant, typeof Info> = {
   info: Info,
   success: CheckCircle,
   warning: AlertTriangle,
   error: AlertCircle,
-} as const;
+};
 
-const variantLabelMap: Record<AlertBannerProps['variant'], string> = {
+const variantLabelMap: Record<CanonicalVariant, string> = {
   info: 'Information',
   success: 'Success',
   warning: 'Warning',
@@ -38,13 +53,14 @@ export const AlertBanner: React.FC<AlertBannerProps> = ({
   action,
   onDismiss,
 }) => {
-  const Icon = iconMap[variant];
+  const resolved = resolveVariant(variant);
+  const Icon = iconMap[resolved];
 
   return (
     <div
-      className={`${styles.root} ${styles[variant]}`}
+      className={`${styles.root} ${styles[resolved]}`}
       role="alert"
-      aria-label={`${variantLabelMap[variant]}: ${title}`}
+      aria-label={`${variantLabelMap[resolved]}: ${title}`}
     >
       <div className={styles.iconWrapper} aria-hidden="true">
         <Icon className={styles.icon} size={20} />

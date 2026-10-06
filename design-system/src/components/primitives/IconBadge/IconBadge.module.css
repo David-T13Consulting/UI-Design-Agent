@@ -1,0 +1,138 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: var(--line-height-none);
+}
+
+/* --- Sizes --- */
+
+.sizeSm {
+  width: 24px;
+  height: 24px;
+}
+
+.sizeLg {
+  width: 40px;
+  height: 40px;
+}
+
+/* Normal shape = no container sizing override */
+.shapeNormal.sizeSm,
+.shapeNormal.sizeLg {
+  width: auto;
+  height: auto;
+}
+
+/* --- Shapes --- */
+
+.shapeCircle {
+  border-radius: var(--radius-full);
+}
+
+.shapeSquare {
+  border-radius: var(--radius-md);
+}
+
+.shapeNormal {
+  border-radius: 0;
+}
+
+/* --- Variant: Filled --- */
+
+.variantFilled {
+  color: var(--raw-neutral-0);
+}
+
+.variantFilled.colorPrimary {
+  background: var(--color-action-primary);
+}
+
+.variantFilled.colorSuccess {
+  background: var(--color-feedback-success);
+}
+
+.variantFilled.colorWarning {
+  background: var(--color-feedback-warning);
+}
+
+.variantFilled.colorDanger {
+  background: var(--color-feedback-danger);
+}
+
+.variantFilled.colorInfo {
+  background: var(--color-feedback-info);
+}
+
+.variantFilled.colorNeutral {
+  background: var(--raw-neutral-500);
+}
+
+/* --- Variant: Outline --- */
+
+.variantOutline {
+  background: transparent;
+  border: 1.5px solid;
+}
+
+.variantOutline.colorPrimary {
+  border-color: var(--color-action-primary);
+  color: var(--color-action-primary);
+}
+
+.variantOutline.colorSuccess {
+  border-color: var(--color-feedback-success);
+  color: var(--color-feedback-success);
+}
+
+.variantOutline.colorWarning {
+  border-color: var(--color-feedback-warning);
+  color: var(--color-feedback-warning);
+}
+
+.variantOutline.colorDanger {
+  border-color: var(--color-feedback-danger);
+  color: var(--color-feedback-danger);
+}
+
+.variantOutline.colorInfo {
+  border-color: var(--color-feedback-info);
+  color: var(--color-feedback-info);
+}
+
+.variantOutline.colorNeutral {
+  border-color: var(--raw-neutral-400);
+  color: var(--raw-neutral-500);
+}
+
+/* --- Normal shape: just icon color, no container --- */
+
+.shapeNormal {
+  background: transparent;
+  border-color: transparent;
+}
+
+.shapeNormal.colorPrimary {
+  color: var(--color-action-primary);
+}
+
+.shapeNormal.colorSuccess {
+  color: var(--color-feedback-success);
+}
+
+.shapeNormal.colorWarning {
+  color: var(--color-feedback-warning);
+}
+
+.shapeNormal.colorDanger {
+  color: var(--color-feedback-danger);
+}
+
+.shapeNormal.colorInfo {
+  color: var(--color-feedback-info);
+}
+
+.shapeNormal.colorNeutral {
+  color: var(--raw-neutral-500);
+}

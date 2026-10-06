@@ -67,11 +67,115 @@
   background-color: var(--color-bg-subtle);
 }
 
+/* -- Striped rows -- */
+
+.trEven {
+  background-color: var(--color-bg-surface);
+}
+
+.trOdd {
+  background-color: var(--color-bg-sunken);
+}
+
+.trOdd:hover,
+.trEven:hover {
+  background-color: var(--color-bg-subtle);
+}
+
 .td {
   padding: var(--spacing-3) var(--spacing-4);
   color: var(--color-text-primary);
   line-height: var(--line-height-normal);
   vertical-align: middle;
+}
+
+/* -- Cell type: avatar -- */
+
+.avatarCell {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background-color: var(--color-bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  overflow: hidden;
+}
+
+/* -- Cell type: icon -- */
+
+.iconCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+}
+
+/* -- Cell type: tag -- */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-0-5) var(--spacing-2);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-subtle);
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+/* -- Cell type: cta -- */
+
+.ctaButton {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-1) var(--spacing-2);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.ctaButton:hover {
+  background-color: var(--color-bg-subtle);
+}
+
+.ctaButton:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* -- Cell type: rating -- */
+
+.ratingCell {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.starFilled {
+  color: var(--color-feedback-warning);
+}
+
+.starEmpty {
+  color: var(--color-text-disabled);
 }
 
 /* --- Skeleton loading --- */

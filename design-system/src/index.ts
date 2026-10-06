@@ -16,6 +16,7 @@ export { Checkbox } from './components/primitives/Checkbox';
 export { RadioGroup } from './components/primitives/RadioGroup';
 export { Toggle } from './components/primitives/Toggle';
 export { Badge } from './components/primitives/Badge';
+export { IconBadge } from './components/primitives/IconBadge';
 
 // Feedback
 export { AlertBanner } from './components/feedback/AlertBanner';
@@ -29,6 +30,7 @@ export { Tabs } from './components/navigation/Tabs';
 export { Breadcrumb } from './components/navigation/Breadcrumb';
 export { PageHeader } from './components/navigation/PageHeader';
 export { NavItem } from './components/navigation/NavItem';
+export { Sidebar } from './components/navigation/Sidebar';
 
 // Data Display
 export { StatusBadge } from './components/data-display/StatusBadge';
@@ -36,11 +38,16 @@ export { DataTable } from './components/data-display/DataTable';
 export { Card } from './components/data-display/Card';
 export { StatBlock } from './components/data-display/StatBlock';
 export { EmptyState } from './components/data-display/EmptyState';
+export { Avatar } from './components/data-display/Avatar';
+export { ListItem } from './components/data-display/ListItem';
+export { Calendar } from './components/data-display/Calendar';
+export { MessagePreview } from './components/data-display/MessagePreview';
 
 // Overlays
 export { Modal } from './components/overlays/Modal';
 export { Drawer } from './components/overlays/Drawer';
 export { Popover } from './components/overlays/Popover';
+export { Dropdown } from './components/overlays/Dropdown';
 
 // Patterns
 export { FormField } from './components/patterns/FormField';

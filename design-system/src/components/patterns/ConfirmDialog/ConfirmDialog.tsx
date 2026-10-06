@@ -12,8 +12,8 @@ export interface ConfirmDialogProps {
   description: string;
   /** Label for the confirm button */
   confirmLabel?: string;
-  /** Visual variant for the confirm button */
-  confirmVariant?: 'primary' | 'destructive';
+  /** Color for the confirm button */
+  confirmColor?: 'primary' | 'destructive';
   /** Called when the user confirms — may return a Promise for async loading state */
   onConfirm: () => void | Promise<void>;
   /** Called when the user cancels */
@@ -25,7 +25,7 @@ export function ConfirmDialog({
   title,
   description,
   confirmLabel = 'Confirm',
-  confirmVariant = 'primary',
+  confirmColor = 'primary',
   onConfirm,
   onCancel,
 }: ConfirmDialogProps) {
@@ -66,14 +66,16 @@ export function ConfirmDialog({
     <div className={styles.footer}>
       <Button
         ref={cancelRef}
-        variant="secondary"
+        variant="outlined"
+        color="neutral"
         onClick={onCancel}
         disabled={loading}
       >
         Cancel
       </Button>
       <Button
-        variant={confirmVariant}
+        variant="filled"
+        color={confirmColor}
         onClick={handleConfirm}
         loading={loading}
       >

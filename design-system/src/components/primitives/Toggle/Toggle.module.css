@@ -50,6 +50,15 @@
   background: var(--color-action-primary-hover);
 }
 
+/* Pressed state — thumb squishes wider */
+.track:active:not(:disabled) .thumbSm {
+  width: 0.875rem;
+}
+
+.track:active:not(:disabled) .thumbMd {
+  width: 1.375rem;
+}
+
 .thumb {
   display: block;
   border-radius: var(--radius-full);

@@ -3,7 +3,8 @@ import { type LucideIcon } from 'lucide-react';
 import { Icon } from '@/icons';
 import styles from './Button.module.css';
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'destructive' | 'link';
+type ButtonVariant = 'filled' | 'outlined' | 'text';
+type ButtonColor = 'primary' | 'destructive' | 'neutral';
 type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
 
 const ICON_SIZE_MAP: Record<ButtonSize, 'xs' | 'sm' | 'md' | 'lg'> = {
@@ -13,9 +14,17 @@ const ICON_SIZE_MAP: Record<ButtonSize, 'xs' | 'sm' | 'md' | 'lg'> = {
   lg: 'md',
 };
 
+const COLOR_CLASS_MAP: Record<ButtonColor, string> = {
+  primary: styles.colorPrimary ?? '',
+  destructive: styles.colorDestructive ?? '',
+  neutral: styles.colorNeutral ?? '',
+};
+
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Visual style variant */
   variant?: ButtonVariant;
+  /** Color scheme applied to the variant */
+  color?: ButtonColor;
   /** Size of the button */
   size?: ButtonSize;
   /** Shows a loading spinner and disables interaction */
@@ -26,18 +35,22 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   iconRight?: LucideIcon;
   /** Stretches button to full container width */
   fullWidth?: boolean;
+  /** Controlled pressed appearance */
+  pressed?: boolean;
   children?: ReactNode;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   {
-    variant = 'primary',
+    variant = 'filled',
+    color = 'primary',
     size = 'md',
     loading = false,
     disabled = false,
     iconLeft,
     iconRight,
     fullWidth = false,
+    pressed = false,
     children,
     className,
     ...rest
@@ -47,9 +60,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   const classNames = [
     styles.root,
     styles[variant],
+    COLOR_CLASS_MAP[color],
     styles[size],
     fullWidth ? styles.fullWidth : '',
     loading ? styles.loading : '',
+    pressed ? styles.pressed : '',
     className ?? '',
   ]
     .filter(Boolean)
@@ -62,6 +77,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       disabled={disabled || loading}
       aria-busy={loading || undefined}
       aria-disabled={disabled || loading || undefined}
+      aria-pressed={pressed || undefined}
       {...rest}
     >
       {iconLeft && (

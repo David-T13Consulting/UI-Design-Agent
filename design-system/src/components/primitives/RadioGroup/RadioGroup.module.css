@@ -73,6 +73,12 @@
   border-color: var(--color-action-primary-hover);
 }
 
+/* Pressed state */
+.option:active:not(:disabled) .circle {
+  transform: scale(0.92);
+  border-color: var(--color-action-primary-active);
+}
+
 .dot {
   width: var(--spacing-2-5);
   height: var(--spacing-2-5);

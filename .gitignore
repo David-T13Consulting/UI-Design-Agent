@@ -9,12 +9,12 @@
 *.swp
 *.swo
 
-# Dependencies (project-specific — uncomment what applies)
-# node_modules/
-# .env
-# .env.local
+# Dependencies
+node_modules/
+.env
+.env.local
 
-# Build artifacts (project-specific — uncomment what applies)
-# dist/
-# build/
-# coverage/
+# Build artifacts
+dist/
+build/
+coverage/

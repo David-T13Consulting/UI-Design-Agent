@@ -64,6 +64,18 @@
   border-color: var(--color-action-primary-hover);
 }
 
+/* Pressed state */
+.container:active:not(.disabled) .box {
+  transform: scale(0.92);
+  background-color: var(--color-bg-sunken);
+}
+
+.container:active:not(.disabled) .boxChecked {
+  transform: scale(0.92);
+  background-color: var(--color-action-primary-active);
+  border-color: var(--color-action-primary-active);
+}
+
 .hasError .box {
   border-color: var(--color-border-error);
 }

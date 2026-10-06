@@ -13,6 +13,8 @@ export default meta;
 
 type Story = StoryObj<typeof AlertBanner>;
 
+/* ── Canonical variant names ── */
+
 export const Info: Story = {
   args: {
     variant: 'info',
@@ -44,6 +46,42 @@ export const Error: Story = {
     message: 'Something went wrong. Please try again later.',
   },
 };
+
+/* ── Figma alias variant names ── */
+
+export const Informative: Story = {
+  args: {
+    variant: 'informative',
+    title: 'Informative (Figma alias)',
+    message: 'This uses the "informative" variant name, mapped to "info".',
+  },
+};
+
+export const Validation: Story = {
+  args: {
+    variant: 'validation',
+    title: 'Validation (Figma alias)',
+    message: 'This uses the "validation" variant name, mapped to "success".',
+  },
+};
+
+export const Problem: Story = {
+  args: {
+    variant: 'problem',
+    title: 'Problem (Figma alias)',
+    message: 'This uses the "problem" variant name, mapped to "warning".',
+  },
+};
+
+export const Negative: Story = {
+  args: {
+    variant: 'negative',
+    title: 'Negative (Figma alias)',
+    message: 'This uses the "negative" variant name, mapped to "error".',
+  },
+};
+
+/* ── Interactive variants ── */
 
 export const Dismissible: Story = {
   args: {

@@ -1,0 +1,200 @@
+/* Sidebar.module.css */
+
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: var(--font-family-sans);
+  background: var(--color-bg-surface);
+  border-right: 1px solid var(--color-border-default);
+  transition: width var(--motion-duration-slower) var(--motion-ease-productive-standard);
+  overflow: hidden;
+}
+
+.large {
+  width: 240px;
+}
+
+.short {
+  width: 64px;
+}
+
+/* ── Header & Footer ── */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: var(--spacing-4);
+  border-bottom: 1px solid var(--color-border-default);
+  background: var(--color-bg-surface);
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  padding: var(--spacing-4);
+  border-top: 1px solid var(--color-border-default);
+  background: var(--color-bg-surface);
+  margin-top: auto;
+}
+
+/* ── Content ── */
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-0-5);
+}
+
+/* ── Item ── */
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  width: 100%;
+  padding: var(--spacing-2) var(--spacing-3);
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-secondary);
+  text-align: left;
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-ease-productive-standard),
+    color var(--motion-duration-fast) var(--motion-ease-productive-standard),
+    border-color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.item:hover {
+  background: var(--color-action-ghost-hover);
+  color: var(--color-text-primary);
+}
+
+.itemActive {
+  background: var(--raw-primary-50);
+  color: var(--color-action-primary);
+  border-left-color: var(--color-action-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.itemActive:hover {
+  background: var(--raw-primary-100);
+  color: var(--color-action-primary-hover);
+}
+
+/* ── Short mode item ── */
+
+.itemShort {
+  justify-content: center;
+  padding: var(--spacing-2);
+  border-left-color: transparent;
+}
+
+.itemShort.itemActive {
+  border-left-color: transparent;
+  background: var(--raw-primary-50);
+}
+
+/* ── Icon ── */
+
+.itemIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Label ── */
+
+.itemLabel {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+/* ── Badge ── */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 var(--spacing-1-5);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-none);
+  color: var(--color-text-inverse);
+  background: var(--color-action-primary);
+  border-radius: var(--radius-full);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.badgeDot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-feedback-danger);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-bg-surface);
+}
+
+/* ── Chevron ── */
+
+.chevron {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: transform var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.chevronExpanded {
+  transform: rotate(180deg);
+}
+
+/* ── Children (nested items) ── */
+
+.children {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-0-5);
+}
+
+/* ── Collapse button ── */
+
+.collapseButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--spacing-2);
+  background: none;
+  border: none;
+  border-top: 1px solid var(--color-border-default);
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-ease-productive-standard),
+    color var(--motion-duration-fast) var(--motion-ease-productive-standard);
+}
+
+.collapseButton:hover {
+  background: var(--color-action-ghost-hover);
+  color: var(--color-text-primary);
+}

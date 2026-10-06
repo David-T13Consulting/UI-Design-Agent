@@ -13,6 +13,7 @@
   text-decoration: none;
   white-space: nowrap;
   user-select: none;
+  border-radius: var(--radius-lg);
   transition:
     background-color var(--motion-duration-fast) var(--motion-ease-productive-standard),
     color var(--motion-duration-fast) var(--motion-ease-productive-standard),
@@ -34,64 +35,113 @@
   outline-offset: 2px;
 }
 
-/* ── Variants ── */
+/* ── Filled Variant ── */
 
-.primary {
-  background-color: var(--color-action-primary);
+.filled {
   color: var(--color-text-inverse);
-  border-radius: var(--radius-lg);
 }
 
-.primary:hover:not(:disabled) {
+.filled.colorPrimary {
+  background-color: var(--color-action-primary);
+}
+
+.filled.colorPrimary:hover:not(:disabled) {
   background-color: var(--color-action-primary-hover);
 }
 
-.primary:active:not(:disabled) {
+.filled.colorPrimary:active:not(:disabled) {
   background-color: var(--color-action-primary-active);
 }
 
-.secondary {
+.filled.colorDestructive {
+  background-color: var(--color-action-destructive);
+}
+
+.filled.colorDestructive:hover:not(:disabled) {
+  background-color: var(--color-action-destructive-hover);
+}
+
+.filled.colorNeutral {
   background-color: var(--color-action-secondary);
   color: var(--color-text-primary);
   border: 1px solid var(--color-border-default);
-  border-radius: var(--radius-lg);
 }
 
-.secondary:hover:not(:disabled) {
+.filled.colorNeutral:hover:not(:disabled) {
   background-color: var(--color-action-secondary-hover);
   border-color: var(--color-border-strong);
 }
 
-.ghost {
+/* ── Outlined Variant ── */
+
+.outlined {
   background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.outlined.colorPrimary {
+  border-color: var(--color-action-primary);
+  color: var(--color-action-primary);
+}
+
+.outlined.colorPrimary:hover:not(:disabled) {
+  background-color: var(--raw-primary-50);
+}
+
+.outlined.colorDestructive {
+  border-color: var(--color-action-destructive);
+  color: var(--color-action-destructive);
+}
+
+.outlined.colorDestructive:hover:not(:disabled) {
+  background-color: var(--raw-danger-50);
+}
+
+.outlined.colorNeutral {
+  border-color: var(--color-border-default);
   color: var(--color-text-primary);
-  border-radius: var(--radius-lg);
 }
 
-.ghost:hover:not(:disabled) {
-  background-color: var(--color-action-ghost-hover);
+.outlined.colorNeutral:hover:not(:disabled) {
+  background-color: var(--raw-neutral-50);
+  border-color: var(--color-border-strong);
 }
 
-.destructive {
-  background-color: var(--color-action-destructive);
-  color: var(--color-text-inverse);
-  border-radius: var(--radius-lg);
-}
+/* ── Text Variant ── */
 
-.destructive:hover:not(:disabled) {
-  background-color: var(--color-action-destructive-hover);
-}
-
-.link {
+.text {
   background-color: transparent;
-  color: var(--color-text-link);
-  padding: 0;
-  border-radius: var(--radius-none);
 }
 
-.link:hover:not(:disabled) {
-  color: var(--color-text-link-hover);
-  text-decoration: underline;
+.text.colorPrimary {
+  color: var(--color-action-primary);
+}
+
+.text.colorPrimary:hover:not(:disabled) {
+  background-color: var(--raw-primary-50);
+}
+
+.text.colorDestructive {
+  color: var(--color-action-destructive);
+}
+
+.text.colorDestructive:hover:not(:disabled) {
+  background-color: var(--raw-danger-50);
+}
+
+.text.colorNeutral {
+  color: var(--color-text-secondary);
+}
+
+.text.colorNeutral:hover:not(:disabled) {
+  background-color: var(--raw-neutral-50);
+}
+
+/* ── Pressed State (controlled) ── */
+
+.pressed {
+  background-color: var(--color-action-primary-active);
 }
 
 /* ── Sizes ── */
@@ -119,15 +169,6 @@
   height: var(--spacing-12);
   padding: 0 var(--spacing-6);
   font-size: var(--font-size-base);
-}
-
-/* Link variant should not have height/padding from sizes (except font-size) */
-.link.xs,
-.link.sm,
-.link.md,
-.link.lg {
-  height: auto;
-  padding: 0;
 }
 
 /* ── Full Width ── */
@@ -162,18 +203,21 @@
 }
 
 /* Inherit color from parent variant for spinner */
-.primary .spinnerIcon,
-.destructive .spinnerIcon {
+.filled.colorPrimary .spinnerIcon,
+.filled.colorDestructive .spinnerIcon {
   color: var(--color-text-inverse);
 }
 
-.secondary .spinnerIcon,
-.ghost .spinnerIcon {
+.filled.colorNeutral .spinnerIcon {
   color: var(--color-text-primary);
 }
 
-.link .spinnerIcon {
-  color: var(--color-text-link);
+.outlined .spinnerIcon {
+  color: currentColor;
+}
+
+.text .spinnerIcon {
+  color: currentColor;
 }
 
 @keyframes spin {

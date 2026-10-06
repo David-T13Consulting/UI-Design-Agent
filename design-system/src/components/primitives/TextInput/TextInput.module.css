@@ -19,6 +19,13 @@
   margin-left: var(--spacing-0-5);
 }
 
+.optionalTag {
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-normal);
+  margin-left: var(--spacing-1);
+  font-size: var(--font-size-xs);
+}
+
 .inputWrapper {
   display: flex;
   align-items: center;

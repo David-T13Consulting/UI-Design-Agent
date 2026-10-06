@@ -1,12 +1,17 @@
 import { forwardRef, type InputHTMLAttributes, type ReactNode, useId } from 'react';
+import { Search } from 'lucide-react';
+import { Icon } from '@/icons';
 import styles from './TextInput.module.css';
 
-type TextInputType = 'text' | 'email' | 'password' | 'number' | 'search';
+type TextInputType = 'text' | 'email' | 'password' | 'number' | 'search' | 'tel' | 'url';
+type TextInputVariant = 'standard' | 'optional' | 'mandatory' | 'search' | 'withIcon';
 
 export interface TextInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'prefix' | 'size'> {
   /** Label displayed above the input */
   label?: string;
+  /** Form field variant */
+  variant?: TextInputVariant;
   /** Placeholder text */
   placeholder?: string;
   /** Hint text shown below the input */
@@ -25,6 +30,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   function TextInput(
     {
       label,
+      variant = 'standard',
       placeholder,
       hint,
       error,
@@ -45,6 +51,13 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const errorId = `${inputId}-error`;
     const hasError = Boolean(error);
 
+    const showAsterisk = required || variant === 'mandatory';
+    const showOptional = variant === 'optional';
+    const resolvedPrefix = variant === 'search'
+      ? <Icon icon={Search} size="sm" />
+      : prefix;
+    const resolvedType = variant === 'search' ? 'search' : type;
+
     const wrapperClassNames = [
       styles.inputWrapper,
       hasError ? styles.inputWrapperError : '',
@@ -58,19 +71,20 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         {label && (
           <label htmlFor={inputId} className={styles.label}>
             {label}
-            {required && <span className={styles.required} aria-hidden="true">*</span>}
+            {showAsterisk && <span className={styles.required} aria-hidden="true">*</span>}
+            {showOptional && <span className={styles.optionalTag}>(optional)</span>}
           </label>
         )}
         <div className={wrapperClassNames}>
-          {prefix && <span className={styles.prefix}>{prefix}</span>}
+          {resolvedPrefix && <span className={styles.prefix}>{resolvedPrefix}</span>}
           <input
             ref={ref}
             id={inputId}
-            type={type}
+            type={resolvedType}
             className={styles.input}
             placeholder={placeholder}
             disabled={disabled}
-            required={required}
+            required={showAsterisk}
             aria-invalid={hasError || undefined}
             aria-describedby={hasError ? errorId : hint ? hintId : undefined}
             {...rest}
